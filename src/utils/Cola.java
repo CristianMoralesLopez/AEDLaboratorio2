@@ -55,6 +55,7 @@ public class Cola<T> {
 	 * @param i
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public T get(int i) {
 
 		T object = null;
@@ -80,6 +81,11 @@ public class Cola<T> {
 		return size;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
 	public T[] getArray() {
 		Node<T> copy = root;
 		T[] array = (T[]) new Object[getSize()];
@@ -97,7 +103,7 @@ public class Cola<T> {
 	 * @param <T>
 	 */
 	@SuppressWarnings("hiding")
-	public class Node<T> {
+	private class Node<T> {
 
 		/**
 		 * 
