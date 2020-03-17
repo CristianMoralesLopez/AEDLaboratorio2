@@ -43,6 +43,22 @@ public class Cola<T> {
 		return answer;
 	}
 
+	public T get(int i) {
+
+		T object = null;
+		if (i >= 0) {
+
+			Node<T> copy = root;
+			while ((copy = copy.next) != null && i > 0) {
+				i--;
+			}
+
+			if (copy != null)
+				object = copy.object;
+		}
+		return object;
+	}
+
 	/**
 	 * 
 	 * @author Cristian Alejandro Morales Lopez

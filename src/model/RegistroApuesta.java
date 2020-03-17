@@ -1,11 +1,45 @@
 package model;
 
+/**
+ * 
+ * @author Cristian Alejandro Morales Lopez
+ *
+ */
 public class RegistroApuesta {
 
+	/**
+	 * 
+	 */
 	private String cedula;
+	
+	/**
+	 * 
+	 */
 	private String nombre;
+	
+	/**
+	 * 
+	 */
 	private Caballo caballoApostado;
+	
+	/**
+	 * 
+	 */
 	private double montoApostado;
+	
+	/**
+	 * 
+	 * @param cedula
+	 * @param nombre
+	 * @param caballoApostado
+	 * @param montoApostado
+	 */
+	public RegistroApuesta(String cedula, String nombre, Caballo caballoApostado, double montoApostado) {
+		this.caballoApostado = caballoApostado;
+		this.cedula = cedula;
+		this.montoApostado = montoApostado;
+		this.nombre = nombre;
+	}
 	
 	/**
 	 * @return the cedula
