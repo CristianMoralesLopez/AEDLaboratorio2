@@ -1,6 +1,6 @@
 package model;
 
-import utils.Cola;
+import utils.Queue;
 
 /**
  * 
@@ -22,14 +22,14 @@ public class Hipodromo {
 	/**
 	 * 
 	 */
-	private Cola<Caballo> caballos;
+	private Queue<Caballo> caballos;
 
 	/**
 	 * 
 	 */
 	public Hipodromo() {
 		apuestas = new CasaDeApuesta();
-		caballos = new Cola<Caballo>();
+		caballos = new Queue<Caballo>();
 	}
 
 	/**

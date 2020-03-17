@@ -6,7 +6,7 @@ package utils;
  *
  * @param <T>
  */
-public class Cola<T> {
+public class Queue<T> {
 
 	/**
 	 * 
@@ -21,7 +21,7 @@ public class Cola<T> {
 	/**
 	 * 
 	 */
-	public Cola() {
+	public Queue() {
 		size = 0;
 	}
 
