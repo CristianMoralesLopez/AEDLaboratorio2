@@ -12,7 +12,7 @@ public class Hipodromo {
 	/**
 	 * Default name of racecourse
 	 */
-	public static final String NAME = "El idomable Spirit";
+	public static final String NAME = "El indomable Spirit";
 	
 	/**
 	 * 
@@ -34,11 +34,16 @@ public class Hipodromo {
 	
 	/**
 	 * 
+	 * @param cedula
+	 * @param nombre
+	 * @param IDCaballo
+	 * @param valorApostado
+	 * @return retorna true si el registro fue exitoso y false en caso contrario.
 	 */
-	public void registrarApuesta(String cedula, String nombre, int IDCaballo, double valorApostado ) {
+	public boolean registrarApuesta(String cedula, String nombre, int IDCaballo, double valorApostado ) {
 		
 		Caballo select = caballos.get(IDCaballo);
-		
+		return apuestas.agregarApuesta(cedula, nombre, select, valorApostado);
 		
 	}
 
