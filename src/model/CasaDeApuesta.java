@@ -7,7 +7,7 @@ import java.util.HashMap;
  * @author Cristian Alejandro Morales Lopez
  *
  */
-public class Apuestas {
+public class CasaDeApuesta {
 
 	/**
 	 * Tiempo limite de apuesta 180.000s ~ 3 minutos
@@ -32,7 +32,7 @@ public class Apuestas {
 	/**
 	 * 
 	 */
-	public Apuestas() {
+	public CasaDeApuesta() {
 		apuestas = new HashMap<String, RegistroApuesta>();
 		setEnable(true);
 	}
