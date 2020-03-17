@@ -17,10 +17,10 @@ public class Caballo {
 	 */
 	private String nombreCaballo;
 
-	/**
-	 * 
-	 */
-	private String pista;
+//	/**
+//	 * 
+//	 */
+//	private String pista;
 
 	/**
 	 * 
@@ -31,7 +31,7 @@ public class Caballo {
 	public Caballo(String nombreJinete, String nombreCaballo, String pista) {
 		this.nombreJinete = nombreJinete;
 		this.nombreCaballo = nombreCaballo;
-		this.pista = pista;
+//		this.pista = pista;
 	}
 
 	/**

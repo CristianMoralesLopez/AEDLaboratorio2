@@ -142,12 +142,12 @@ public class Queue<T> {
 			return object;
 		}
 
-		/**
-		 * @param object the object to set
-		 */
-		public void setObject(T object) {
-			this.object = object;
-		}
+//		/**
+//		 * @param object the object to set
+//		 */
+//		public void setObject(T object) {
+//			this.object = object;
+//		}
 	}
 
 }
