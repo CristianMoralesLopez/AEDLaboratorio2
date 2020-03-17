@@ -1,6 +1,6 @@
 package model;
 
-public class Usuario {
+public class RegistroApuesta {
 
 	private String cedula;
 	private String nombre;
