@@ -48,6 +48,17 @@ public class Hipodromo {
 
 	/**
 	 * 
+	 * @param nameHourse
+	 * @param nameHourseman
+	 * @return
+	 */
+	public void registrarCaballo(String nameHourse, String nameHourseman) {
+		Caballo caballo = new Caballo(nameHourseman, nameHourse, Caballo.DEFAULT, caballos.getSize());
+		caballos.add(caballo);
+	}
+
+	/**
+	 * 
 	 * @return
 	 */
 	public String[] listaNombresCaballos() {

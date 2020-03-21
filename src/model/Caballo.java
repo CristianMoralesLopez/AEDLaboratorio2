@@ -6,7 +6,17 @@ package model;
  *
  */
 public class Caballo {
+	
+	/**
+	 * 
+	 */
+	public static final String DEFAULT = "default";
 
+	/**
+	 * 
+	 */
+	private int ID;
+	
 	/**
 	 * 
 	 */
@@ -17,10 +27,10 @@ public class Caballo {
 	 */
 	private String nombreCaballo;
 
-//	/**
-//	 * 
-//	 */
-//	private String pista;
+	/**
+	 * 
+	 */
+	private String pista;
 
 	/**
 	 * 
@@ -28,10 +38,11 @@ public class Caballo {
 	 * @param nombreCaballo
 	 * @param pista
 	 */
-	public Caballo(String nombreJinete, String nombreCaballo, String pista) {
+	public Caballo(String nombreJinete, String nombreCaballo, String pista, int ID) {
 		this.nombreJinete = nombreJinete;
 		this.nombreCaballo = nombreCaballo;
-//		this.pista = pista;
+		this.ID = ID;
+		this.setPista(pista);
 	}
 
 	/**
@@ -60,6 +71,20 @@ public class Caballo {
 	 */
 	public void setNombreCaballo(String nombreCaballo) {
 		this.nombreCaballo = nombreCaballo;
+	}
+
+	/**
+	 * @return the pista
+	 */
+	public String getPista() {
+		return pista;
+	}
+
+	/**
+	 * @param pista the pista to set
+	 */
+	public void setPista(String pista) {
+		this.pista = pista;
 	}
 
 }
