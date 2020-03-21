@@ -11,7 +11,6 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import utils.InterfaceRegisterBet;
-import utils.InterfaceRegisterHourses;
 
 /**
  * 
@@ -19,6 +18,21 @@ import utils.InterfaceRegisterHourses;
  *
  */
 public class WindowsRegisterBets extends JFrame {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * 
+	 */
+	private JLabel lblTime;
+
+	/**
+	 * 
+	 */
+	private JLabel lblTimer;
 
 	/**
 	 * 
@@ -73,14 +87,15 @@ public class WindowsRegisterBets extends JFrame {
 	/**
 	 * 
 	 */
-	private int countRegister;
+	private int time;
 
 	/**
 	 * 
 	 * @param registersAction
 	 */
 	public WindowsRegisterBets(final InterfaceRegisterBet registersAction) {
-		setLayout(new GridLayout(5, 2));
+		setLayout(new GridLayout(6, 2));
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 		lblId = new JLabel("Cédula : ");
 		add(lblId);
@@ -115,10 +130,12 @@ public class WindowsRegisterBets extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				if (countRegister < 10)
-					if (!txtName.getText().equals("") && !txtId.getText().equals("")) {
+				if (validateData()) {
+					int bet = Integer.parseInt(txtAmount.getText());
+					int ID = optionsHorses.getItemCount();
+					registersAction.registerBet(txtId.getText(), txtName.getText(), ID, bet);
 
-					}
+				}
 
 			}
 		});
@@ -137,9 +154,53 @@ public class WindowsRegisterBets extends JFrame {
 		});
 		add(butFinish);
 
+		lblTime = new JLabel("Tiempo restante : ");
+		add(lblTime);
+
+		lblTimer = new JLabel("00:00");
+		add(lblTimer);
+
+		time = 180;
+
+		(new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				while (time > 0) {
+					try {
+						int minutes = time / 60;
+						int seconds = time % 60;
+						lblTimer.setText(minutes + ":" + seconds);
+						Thread.sleep(990);
+					} catch (Exception e) {
+						// TODO: handle exception
+						e.printStackTrace();
+					}
+					time--;
+				}
+				registersAction.finish();
+				dispose();
+
+			}
+		})).start();
+		;
+
 		setVisible(true);
 		pack();
 
+	}
+
+	public boolean validateData() {
+
+		try {
+			int bet = Integer.parseInt(txtAmount.getText());
+			return bet > 0 && !txtId.getText().equals("") && !txtName.getText().equals("");
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return false;
 	}
 
 }

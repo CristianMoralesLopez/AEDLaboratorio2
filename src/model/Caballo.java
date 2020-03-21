@@ -6,17 +6,12 @@ package model;
  *
  */
 public class Caballo {
-	
+
 	/**
 	 * 
 	 */
 	public static final String DEFAULT = "default";
 
-	/**
-	 * 
-	 */
-	private int ID;
-	
 	/**
 	 * 
 	 */
@@ -41,7 +36,6 @@ public class Caballo {
 	public Caballo(String nombreJinete, String nombreCaballo, String pista, int ID) {
 		this.nombreJinete = nombreJinete;
 		this.nombreCaballo = nombreCaballo;
-		this.ID = ID;
 		this.setPista(pista);
 	}
 

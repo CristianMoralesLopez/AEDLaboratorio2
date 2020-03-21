@@ -21,6 +21,11 @@ public class WindowsRegisterHourses extends JFrame {
 	/**
 	 * 
 	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * 
+	 */
 	private JLabel lblNameHourse;
 
 	/**
@@ -100,8 +105,10 @@ public class WindowsRegisterHourses extends JFrame {
 						registersAction.registerHourse(txtNameHourse.getText().trim(),
 								txtNameHorseman.getText().trim());
 						++countRegister;
-						if (countRegister == 10)
-							butNext.setEnabled(false);
+						if (countRegister == 10) {
+							registersAction.finish();
+							dispose();
+						}
 						if (countRegister > 6)
 							butFinish.setEnabled(true);
 

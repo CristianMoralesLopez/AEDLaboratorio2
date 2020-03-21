@@ -43,7 +43,6 @@ public class Hipodromo {
 	public boolean registrarApuesta(String cedula, String nombre, int IDCaballo, double valorApostado) {
 		Caballo select = caballos.get(IDCaballo);
 		return apuestas.agregarApuesta(cedula, nombre, select, valorApostado);
-
 	}
 
 	/**
@@ -72,5 +71,6 @@ public class Hipodromo {
 		return namesHorses;
 
 	}
+	
 
 }

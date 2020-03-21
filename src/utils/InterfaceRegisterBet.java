@@ -17,6 +17,15 @@ public interface InterfaceRegisterBet {
 
 	/**
 	 * 
+	 * @param id
+	 * @param name
+	 * @param hourse
+	 * @param bet
+	 */
+	public void registerBet(String id, String name, int hourse, double bet);
+
+	/**
+	 * 
 	 */
 	public void finish();
 

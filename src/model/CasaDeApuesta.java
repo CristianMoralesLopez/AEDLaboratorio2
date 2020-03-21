@@ -10,11 +10,6 @@ import java.util.HashMap;
 public class CasaDeApuesta {
 
 	/**
-	 * Tiempo limite de apuesta 180.000s ~ 3 minutos
-	 */
-	public final long TIME = 180000;
-
-	/**
 	 * 
 	 */
 	private HashMap<String, RegistroApuesta> apuestas;
@@ -23,11 +18,6 @@ public class CasaDeApuesta {
 	 * 
 	 */
 	private boolean isEnable;
-
-//	/**
-//	 * 
-//	 */
-//	private long time;
 
 	/**
 	 * 

@@ -50,6 +50,12 @@ public class Main {
 						// TODO Auto-generated method stub
 						System.out.println("Finish()");
 					}
+
+					@Override
+					public void registerBet(String id, String name, int hourse, double bet) {
+						// TODO Auto-generated method stub
+						hipodromo.registrarApuesta(id, name, hourse, bet);
+					}
 				});
 			}
 		};
