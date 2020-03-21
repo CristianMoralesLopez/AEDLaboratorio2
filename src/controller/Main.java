@@ -1,7 +1,9 @@
 package controller;
 
 import model.Hipodromo;
+import utils.InterfaceRegisterBet;
 import utils.InterfaceRegisterHourses;
+import view.WindowsRegisterBets;
 import view.WindowsRegisterHourses;
 
 /**
@@ -35,7 +37,20 @@ public class Main {
 			@Override
 			public void finish() {
 				// TODO Auto-generated method stub
-				System.out.println("Finish()");
+				new WindowsRegisterBets(new InterfaceRegisterBet() {
+
+					@Override
+					public String[] getNamesHorses() {
+						// TODO Auto-generated method stub
+						return hipodromo.listaNombresCaballos();
+					}
+
+					@Override
+					public void finish() {
+						// TODO Auto-generated method stub
+						System.out.println("Finish()");
+					}
+				});
 			}
 		};
 		new WindowsRegisterHourses(interfaceRegisterHourses);

@@ -63,11 +63,11 @@ public class Hipodromo {
 	 */
 	public String[] listaNombresCaballos() {
 
-		Caballo[] hourses = caballos.getArray();
+		Object[] hourses = caballos.getArray();
 		String[] namesHorses = new String[hourses.length];
 
 		for (int i = 0; i < hourses.length; i++)
-			namesHorses[i] = hourses[i].getNombreCaballo();
+			namesHorses[i] = ((Caballo) hourses[i]).getNombreCaballo();
 
 		return namesHorses;
 

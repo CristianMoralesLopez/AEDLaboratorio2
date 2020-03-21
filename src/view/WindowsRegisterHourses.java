@@ -69,6 +69,7 @@ public class WindowsRegisterHourses extends JFrame {
 	 */
 	public WindowsRegisterHourses(final InterfaceRegisterHourses registersAction) {
 		setLayout(new GridLayout(3, 2));
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
 		lblNameHourse = new JLabel("Nombre del caballo : ");
 		add(lblNameHourse);
@@ -104,6 +105,9 @@ public class WindowsRegisterHourses extends JFrame {
 						if (countRegister > 6)
 							butFinish.setEnabled(true);
 
+						txtNameHorseman.setText("");
+						txtNameHourse.setText("");
+
 					}
 
 			}
@@ -117,6 +121,7 @@ public class WindowsRegisterHourses extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				registersAction.finish();
+				dispose();
 
 			}
 		});
