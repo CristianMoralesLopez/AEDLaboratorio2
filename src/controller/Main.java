@@ -3,8 +3,10 @@ package controller;
 import model.Hipodromo;
 import utils.InterfaceRegisterBet;
 import utils.InterfaceRegisterHourses;
+import utils.InterfaceResults;
 import view.WindowsRegisterBets;
 import view.WindowsRegisterHourses;
+import view.WindowsResults;
 
 /**
  * 
@@ -20,13 +22,77 @@ public class Main {
 
 	/**
 	 * 
+	 */
+	private static InterfaceRegisterHourses interfaceRegisterHourses;
+
+	/**
+	 * 
+	 */
+	private static InterfaceRegisterBet interfaceRegisterBet;
+
+	/**
+	 * 
+	 */
+	private static InterfaceResults interfaceResults;
+
+	/**
+	 * 
+	 */
+	private static WindowsRegisterHourses windowsRegisterHourses;
+
+	/**
+	 * 
+	 */
+	private static WindowsRegisterBets windowsRegisterBets;
+
+	/**
+	 * 
+	 */
+	private static WindowsResults windowsResults;
+
+	/**
+	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		hipodromo = new Hipodromo();
 
-		InterfaceRegisterHourses interfaceRegisterHourses = new InterfaceRegisterHourses() {
+		interfaceResults = new InterfaceResults() {
+
+			@Override
+			public void finish() {
+				// TODO Auto-generated method stub
+				windowsResults.dispose();
+
+			}
+		};
+
+		interfaceRegisterBet = new InterfaceRegisterBet() {
+
+			@Override
+			public String[] getNamesHorses() {
+				// TODO Auto-generated method stub
+				return hipodromo.listaNombresCaballos();
+			}
+
+			@Override
+			public void finish() {
+				// TODO Auto-generated method stub
+				hipodromo.simularCorrida();
+				windowsResults = new WindowsResults(interfaceResults);
+				windowsRegisterBets.dispose();
+				windowsResults.setVisible(true);
+			}
+
+			@Override
+			public void registerBet(String id, String name, int hourse, double bet) {
+				// TODO Auto-generated method stub
+				hipodromo.registrarApuesta(id, name, hourse, bet);
+			}
+		};
+
+		interfaceRegisterHourses = new InterfaceRegisterHourses() {
 
 			@Override
 			public void registerHourse(String nameHourse, String nameHourseman) {
@@ -37,29 +103,14 @@ public class Main {
 			@Override
 			public void finish() {
 				// TODO Auto-generated method stub
-				new WindowsRegisterBets(new InterfaceRegisterBet() {
-
-					@Override
-					public String[] getNamesHorses() {
-						// TODO Auto-generated method stub
-						return hipodromo.listaNombresCaballos();
-					}
-
-					@Override
-					public void finish() {
-						// TODO Auto-generated method stub
-						System.out.println("Finish()");
-					}
-
-					@Override
-					public void registerBet(String id, String name, int hourse, double bet) {
-						// TODO Auto-generated method stub
-						hipodromo.registrarApuesta(id, name, hourse, bet);
-					}
-				});
+				windowsRegisterBets = new WindowsRegisterBets(interfaceRegisterBet);
+				windowsRegisterHourses.dispose();
+				windowsRegisterBets.setVisible(true);
 			}
 		};
-		new WindowsRegisterHourses(interfaceRegisterHourses);
+
+		windowsRegisterHourses = new WindowsRegisterHourses(interfaceRegisterHourses);
+		windowsRegisterHourses.setVisible(true);
 	}
 
 }

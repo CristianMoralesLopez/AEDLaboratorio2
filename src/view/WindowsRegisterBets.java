@@ -148,7 +148,6 @@ public class WindowsRegisterBets extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				registersAction.finish();
-				dispose();
 
 			}
 		});
@@ -180,17 +179,18 @@ public class WindowsRegisterBets extends JFrame {
 					time--;
 				}
 				registersAction.finish();
-				dispose();
 
 			}
 		})).start();
-		;
 
-		setVisible(true);
 		pack();
 
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public boolean validateData() {
 
 		try {

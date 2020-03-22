@@ -107,7 +107,6 @@ public class WindowsRegisterHourses extends JFrame {
 						++countRegister;
 						if (countRegister == 10) {
 							registersAction.finish();
-							dispose();
 						}
 						if (countRegister > 6)
 							butFinish.setEnabled(true);
@@ -128,14 +127,12 @@ public class WindowsRegisterHourses extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				registersAction.finish();
-				dispose();
 
 			}
 		});
 		butFinish.setEnabled(false);
 		add(butFinish);
 
-		setVisible(true);
 		pack();
 
 	}

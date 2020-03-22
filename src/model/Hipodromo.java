@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Random;
+
 import utils.Queue;
 
 /**
@@ -65,12 +67,34 @@ public class Hipodromo {
 		Object[] hourses = caballos.getArray();
 		String[] namesHorses = new String[hourses.length];
 
-		for (int i = 0; i < hourses.length; i++)
-			namesHorses[i] = ((Caballo) hourses[i]).getNombreCaballo();
+		for (int i = 0; i < hourses.length; i++) {
+			Caballo tmp = (Caballo) hourses[i];
+			namesHorses[i] = "Caballo : " + tmp.getNombreCaballo() + ", Jinete : " + tmp.getNombreJinete();
+		}
 
 		return namesHorses;
 
 	}
-	
+
+	/**
+	 * 
+	 */
+	public void simularCorrida() {
+
+		Object[] hourses = caballos.getArray();
+
+		// 1º método: posición aleatoria
+		for (int i = 0; i < hourses.length; i++) {
+			int posAleatoria = (new Random()).nextInt(hourses.length);
+			Object temp = hourses[i];
+			hourses[i] = hourses[posAleatoria];
+			hourses[posAleatoria] = temp;
+		}
+
+		caballos = new Queue<Caballo>();
+		for (int i = 0; i < hourses.length; i++)
+			caballos.add((Caballo) hourses[i]);
+
+	}
 
 }
