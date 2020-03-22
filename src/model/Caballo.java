@@ -29,6 +29,11 @@ public class Caballo {
 
 	/**
 	 * 
+	 */
+	private int ID;
+
+	/**
+	 * 
 	 * @param nombreJinete
 	 * @param nombreCaballo
 	 * @param pista
@@ -37,6 +42,7 @@ public class Caballo {
 		this.nombreJinete = nombreJinete;
 		this.nombreCaballo = nombreCaballo;
 		this.setPista(pista);
+		this.ID = ID;
 	}
 
 	/**
@@ -79,6 +85,20 @@ public class Caballo {
 	 */
 	public void setPista(String pista) {
 		this.pista = pista;
+	}
+
+	/**
+	 * @return the iD
+	 */
+	public int getID() {
+		return ID;
+	}
+
+	/**
+	 * @param iD the iD to set
+	 */
+	public void setID(int iD) {
+		ID = iD;
 	}
 
 }

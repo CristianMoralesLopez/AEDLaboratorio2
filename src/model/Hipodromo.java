@@ -78,6 +78,23 @@ public class Hipodromo {
 
 	/**
 	 * 
+	 * @param cedula
+	 * @return
+	 */
+	public String buscarRegistro(String cedula) {
+		String respuesta = "NO EXISTE UN REGISTRO CON ESA CEDULA";
+		RegistroApuesta registroApuesta = apuestas.consultarApuesta(cedula);
+		if (registroApuesta != null) {
+			respuesta = registroApuesta.toString() + "\nRESULTADO : "
+					+ (registroApuesta.getCaballoApostado().getID() == ((Caballo) caballos.get(0)).getID() ? "GANADOR"
+							: "PERDEDOR");
+		}
+
+		return respuesta;
+	}
+
+	/**
+	 * 
 	 */
 	public void simularCorrida() {
 
@@ -95,6 +112,22 @@ public class Hipodromo {
 		for (int i = 0; i < hourses.length; i++)
 			caballos.add((Caballo) hourses[i]);
 
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public String[] getPodium() {
+
+		String[] array = new String[3];
+
+		for (int i = 0; i < array.length; i++) {
+			Caballo tmp = (Caballo) caballos.get(i);
+			array[i] = i + ". " + "Caballo : " + tmp.getNombreCaballo() + ", Jinete : " + tmp.getNombreJinete();
+		}
+
+		return array;
 	}
 
 }

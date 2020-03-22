@@ -66,6 +66,38 @@ public class Main {
 				windowsResults.dispose();
 
 			}
+
+			@Override
+			public void restart() {
+				// TODO Auto-generated method stub
+				hipodromo = new Hipodromo();
+				windowsResults.dispose();
+				windowsRegisterHourses = new WindowsRegisterHourses(interfaceRegisterHourses);
+				windowsRegisterHourses.setVisible(true);
+
+			}
+
+			@Override
+			public String search(String id) {
+				// TODO Auto-generated method stub
+				return hipodromo.buscarRegistro(id);
+			}
+
+			@Override
+			public void remath() {
+				// TODO Auto-generated method stub
+				hipodromo.simularCorrida();
+				windowsResults.dispose();
+				windowsResults = new WindowsResults(this);
+				windowsResults.setVisible(true);
+
+			}
+
+			@Override
+			public String[] getPodium() {
+				// TODO Auto-generated method stub
+				return hipodromo.getPodium();
+			}
 		};
 
 		interfaceRegisterBet = new InterfaceRegisterBet() {

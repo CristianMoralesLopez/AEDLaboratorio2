@@ -132,7 +132,7 @@ public class WindowsRegisterBets extends JFrame {
 				// TODO Auto-generated method stub
 				if (validateData()) {
 					int bet = Integer.parseInt(txtAmount.getText());
-					int ID = optionsHorses.getItemCount();
+					int ID = optionsHorses.getSelectedIndex();
 					registersAction.registerBet(txtId.getText(), txtName.getText(), ID, bet);
 
 				}

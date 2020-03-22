@@ -100,21 +100,19 @@ public class WindowsRegisterHourses extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				if (countRegister < 10)
-					if (!txtNameHorseman.getText().equals("") && !txtNameHourse.getText().equals("")) {
-						registersAction.registerHourse(txtNameHourse.getText().trim(),
-								txtNameHorseman.getText().trim());
-						++countRegister;
-						if (countRegister == 10) {
-							registersAction.finish();
-						}
-						if (countRegister > 6)
-							butFinish.setEnabled(true);
-
-						txtNameHorseman.setText("");
-						txtNameHourse.setText("");
-
+				if (!txtNameHorseman.getText().equals("") && !txtNameHourse.getText().equals("")) {
+					registersAction.registerHourse(txtNameHourse.getText().trim(), txtNameHorseman.getText().trim());
+					++countRegister;
+					if (countRegister == 10) {
+						registersAction.finish();
 					}
+					if (countRegister > 6)
+						butFinish.setEnabled(true);
+
+					txtNameHorseman.setText("");
+					txtNameHourse.setText("");
+
+				}
 
 			}
 		});

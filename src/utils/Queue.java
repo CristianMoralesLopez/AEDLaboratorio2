@@ -32,9 +32,9 @@ public class Queue<T> {
 	public void add(T object) {
 		if (root != null) {
 			root.add(object);
-			size++;
 		} else
 			root = new Node<T>(object);
+		size++;
 	}
 
 	/**
