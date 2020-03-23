@@ -3,6 +3,7 @@ package model;
 import java.util.Random;
 
 import utils.Queue;
+import utils.Stack;
 
 /**
  * 
@@ -25,6 +26,11 @@ public class Hipodromo {
 	 * 
 	 */
 	private Queue<Caballo> caballos;
+
+	/**
+	 * 
+	 */
+	private Queue<Caballo> carrera;
 
 	/**
 	 * 
@@ -98,6 +104,8 @@ public class Hipodromo {
 	 */
 	public void simularCorrida() {
 
+		carrera = caballos;
+
 		Object[] hourses = caballos.getArray();
 
 		// 1º método: posición aleatoria
@@ -114,6 +122,43 @@ public class Hipodromo {
 
 	}
 
+	public void revancha() {
+
+		Stack<Caballo> stack = new Stack<Caballo>();
+
+		while (caballos.getSize() > 0)
+			stack.push(caballos.pop());
+
+		while (stack.getSize() > 0)
+			caballos.add(stack.pop());
+
+		simularCorrida();
+
+	}
+
+	public String[] caballosInicial() {
+
+		String[] array = new String[carrera.getSize()];
+
+		for (int i = 0; i < array.length; i++) {
+			Caballo tmp = (Caballo) carrera.get(i);
+			array[i] = (i + 1) + ". " + "Caballo  : " + tmp.getNombreCaballo();
+		}
+
+		return array;
+	}
+
+	public String[] caballosTerminan() {
+		String[] array = new String[caballos.getSize()];
+
+		for (int i = 0; i < array.length; i++) {
+			Caballo tmp = (Caballo) caballos.get(i);
+			array[i] = (i + 1) + ". " + "Caballo : " + tmp.getNombreCaballo();
+		}
+
+		return array;
+	}
+
 	/**
 	 * 
 	 * @return
@@ -124,7 +169,7 @@ public class Hipodromo {
 
 		for (int i = 0; i < array.length; i++) {
 			Caballo tmp = (Caballo) caballos.get(i);
-			array[i] = i + ". " + "Caballo : " + tmp.getNombreCaballo() + ", Jinete : " + tmp.getNombreJinete();
+			array[i] = (i + 1) + ". " + "Caballo : " + tmp.getNombreCaballo() + ", Jinete : " + tmp.getNombreJinete();
 		}
 
 		return array;

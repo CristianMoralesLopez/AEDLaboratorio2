@@ -34,5 +34,17 @@ public interface InterfaceResults {
 	 * 
 	 */
 	public String[] getPodium();
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public String[] getResults();
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public String[] getStarted();
 
 }

@@ -101,9 +101,17 @@ public class Stack<T> {
 	@SuppressWarnings("unchecked")
 	public T pop() {
 		if (top > 0)
-			return (T) array[top--];
+			return (T) array[--top];
 		else
 			return null;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public int getSize() {
+		return top;
 	}
 
 }

@@ -68,6 +68,16 @@ public class WindowsResults extends JFrame {
 
 	/**
 	 * 
+	 */
+	private JList<String> listStar;
+
+	/**
+	 * 
+	 */
+	private JList<String> listFinish;
+
+	/**
+	 * 
 	 * @param interfaceResults
 	 */
 	public WindowsResults(final InterfaceResults interfaceResults) {
@@ -75,10 +85,10 @@ public class WindowsResults extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 		JPanel aux = new JPanel();
-		aux.setLayout(new GridLayout(1, 2));
+		aux.setLayout(new GridLayout(1, 3));
 
 		JPanel aux2 = new JPanel();
-		aux2.setBorder(BorderFactory.createTitledBorder("Resultados"));
+		aux2.setBorder(BorderFactory.createTitledBorder("Podio"));
 		listResults = new JList(interfaceResults.getPodium());
 		aux2.add(listResults);
 
@@ -138,6 +148,19 @@ public class WindowsResults extends JFrame {
 			}
 		});
 		aux2.add(butFinish);
+		aux.add(aux2);
+
+		aux2 = new JPanel();
+		aux2.setBorder(BorderFactory.createTitledBorder("Resultados de la Carrera"));
+		aux2.setLayout(new GridLayout(2, 2));
+
+		listStar = new JList<String>(interfaceResults.getStarted());
+		aux2.add(new JLabel("Empezo"));
+		aux2.add(new JLabel("Termino"));
+		aux2.add(listStar);
+
+		listFinish = new JList<String>(interfaceResults.getResults());
+		aux2.add(listFinish);
 
 		aux.add(aux2);
 

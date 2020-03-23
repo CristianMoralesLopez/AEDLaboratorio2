@@ -86,7 +86,7 @@ public class Main {
 			@Override
 			public void remath() {
 				// TODO Auto-generated method stub
-				hipodromo.simularCorrida();
+				hipodromo.revancha();
 				windowsResults.dispose();
 				windowsResults = new WindowsResults(this);
 				windowsResults.setVisible(true);
@@ -97,6 +97,18 @@ public class Main {
 			public String[] getPodium() {
 				// TODO Auto-generated method stub
 				return hipodromo.getPodium();
+			}
+
+			@Override
+			public String[] getResults() {
+				// TODO Auto-generated method stub
+				return hipodromo.caballosTerminan();
+			}
+
+			@Override
+			public String[] getStarted() {
+				// TODO Auto-generated method stub
+				return hipodromo.caballosInicial();
 			}
 		};
 
