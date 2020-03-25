@@ -35,6 +35,8 @@ public class Hipodromo {
 	/**
 	 * 
 	 */
+	private Stack<Caballo> stack;
+	
 	public Hipodromo() {
 		apuestas = new CasaDeApuesta();
 		caballos = new Queue<Caballo>();
